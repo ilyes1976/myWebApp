@@ -1,18 +1,19 @@
-name: dotnet Build
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
-on: [push]
+trigger:
+- master
 
-jobs:
-    build:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [10.x]
-        steps:
+pool:
+  vmImage: ubuntu-latest
 
-        - uses: actions/checkout@main
-        - uses: actions/setup-dotnet@v1
-            with:
-                dotnet-version: '3.1.x'
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
-        - run: dotnet build awesomeproject
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
